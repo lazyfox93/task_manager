@@ -1,0 +1,15 @@
+<%=form_for @task do |form|%>
+
+<p><%=form.label :title, 'Title'%></p>
+<p><%=form.text_field :title%></p>
+
+<p><%=form.label :description, 'Description' %></p>
+<p><%=form.text_area :description, cols: 30, rows: 20%></p>
+
+<p><%=form.label :due_date,'Deadline' %></p>
+<p><%=form.datetime_select :due_date%></p>
+
+<!-- add form for priority!!!!-->
+
+<p><%=form.submit%></p>
+<%-end%>
