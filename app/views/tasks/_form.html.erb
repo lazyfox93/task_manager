@@ -9,6 +9,10 @@
 <p><%=form.label :due_date,'Deadline' %></p>
 <p><%=form.datetime_select :due_date%></p>
 
+<p><%=form.label :priority, 'Priority'%>
+<p><%=form.number_field :priority, min: 1, max: 5 %></p>
+
+
 <!-- add form for priority!!!!-->
 
 <p><%=form.submit%></p>
