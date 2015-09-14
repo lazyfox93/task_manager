@@ -2,10 +2,14 @@
 <%=link_to 'Create new task', new_task_path%>
 <ul>
 <%- @tasks.each do |t|%>
-<li>
-<%=link_to t.title, task_path(id: t.id) %>
-<%=link_to 'Edit',edit_task_path(id: t.id) %>
-<%=link_to'Delete', task_path(id: t.id), method: :delete %>
-</li>
+  <%-if can? :read, t%>
+  <li>
+  <%=link_to t.title, task_path(id: t.id) %>
+    <ul>
+      <li><%=link_to 'Edit',edit_task_path(id: t.id) %></li>
+      <li><%=link_to'Delete', task_path(id: t.id), method: :delete %></li>
+    </ul> 
+  </li>
+  <%-end%>
 <%-end%>
 </ul>

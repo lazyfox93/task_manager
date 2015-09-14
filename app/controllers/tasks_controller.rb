@@ -1,4 +1,8 @@
 class TasksController < ApplicationController
+  before_action :authenticate_user!
+
+  load_and_authorize_resource
+
   def new
     @task = Task.new
   end
@@ -16,7 +20,8 @@ class TasksController < ApplicationController
 
   def show
     @task = Task.find(params[:id])
-
+    #byebug
+    #redirect_to root_path unless can? :read, @task
   end
 
   def edit
@@ -33,7 +38,7 @@ class TasksController < ApplicationController
     Task.find(params[:id]).destroy
     redirect_to tasks_path
   end
-  
+
   private
 
   def task_params
