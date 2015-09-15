@@ -20,8 +20,6 @@ class TasksController < ApplicationController
 
   def show
     @task = Task.find(params[:id])
-    #byebug
-    #redirect_to root_path unless can? :read, @task
   end
 
   def edit
@@ -36,6 +34,18 @@ class TasksController < ApplicationController
 
   def destroy
     Task.find(params[:id]).destroy
+    redirect_to tasks_path
+  end
+
+  def complete
+    @task = Task.find(params[:id])
+
+    if @task.complete
+      @task.update_attribute(:complete, false)
+    else
+      @task.update_attribute(:complete, true)
+    end
+
     redirect_to tasks_path
   end
 
