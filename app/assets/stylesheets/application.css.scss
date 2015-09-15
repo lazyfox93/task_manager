@@ -1,6 +1,19 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.ddown {
+	display: none;
+}
+
+ul{
+	list-style-type: none;
+}
+
+
+li:hover ul {
+	display: block;
+}
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
