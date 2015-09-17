@@ -1,9 +1,8 @@
 $(document).ready(function(){
-  $('.check:button').click(function(){
-    $('input:checkbox').attr('checked','checked');
-    $(this).val('uncheck all')
-  },function(){
-    $('input:checkbox').removeAttr('checked');
-    $(this).val('check all');
+  $('#check').click(function(){
+  	$('input[type=checkbox]').prop('checked',true)
+  })
+  $('#uncheck').click(function(){
+  	$('input[type=checkbox]').prop('checked',false)
   })
 })
