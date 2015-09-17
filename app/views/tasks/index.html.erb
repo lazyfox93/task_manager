@@ -2,15 +2,19 @@
   <div class="col-lg-12">
   <h1>List of tasks</h1>
   <%=link_to 'Create new task', new_task_path%>
+  <input type="button" class="check" value="check">
   </div>
 </div>
+<%=form_tag destroy_multiple_tasks_path, method: :delete do%>
 <div class="row">
+
   <div class="col-lg-6">
   <h2>To do:</h2>
   <table class = "table">
   <%- @tasks.each do |t|%>
     <%-if (can? :read, t) && (t.complete == false)%>
     <tr>
+    <td><%=check_box_tag 'ids[]', t.id, false,  class: "delete_elemnts" %></td>
     <td><%=link_to 'Done', complete_task_path(id: t.id), method: :patch%></td>
     <td><%=link_to t.title, task_path(id: t.id)%></td>
     <td class = "hiden"><%=link_to 'Edit',edit_task_path(id: t.id) %></td>
@@ -19,13 +23,16 @@
     <%-end%>
   <%-end%>
   </table>
+  <%=submit_tag "Batch delete"%>
   </div>
+
   <div class="col-lg-6">
   <h2>Done:</h2>
   <table class = "table">
   <%- @tasks.each do |t|%>
     <%-if (can? :read, t) && (t.complete == true)%>
     <tr>
+    <td><%=check_box_tag 'ids[]', t.id, false,  class: "delete_elemnts" %></td>
     <td><%=link_to 'Redo', complete_task_path(id: t.id), method: :patch%></td>
     <td><%=link_to t.title, task_path(id: t.id)%></td>
     <td class = "hiden"><%=link_to 'Edit',edit_task_path(id: t.id) %></td>
@@ -34,4 +41,7 @@
     <%-end%>
   <%-end%>   
   </div>
+
 </div>
+
+<%-end%>
