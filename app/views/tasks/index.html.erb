@@ -2,6 +2,7 @@
   <div class="col-lg-12">
   <h1>List of tasks</h1>
     <%=link_to 'Create new task', new_task_path%>
+    <%=link_to 'Sort by name', sort_by_name_tasks_path%>
     <input type="button" id="check" value="check all">
     <input type="button" id="uncheck" value="uncheck all">
   </div>
@@ -11,8 +12,7 @@
 
   <div class="col-lg-6">
   <h2>To do:</h2>
-  <input type="button" id = "sort_to_do" value= "Sort by title">
-  <ul>
+  <ul id="to_do">
   <%- @tasks.each do |t|%>
     <%-if (can? :read, t) && (!t.complete?)%>
     <li>

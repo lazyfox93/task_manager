@@ -42,6 +42,11 @@ class TasksController < ApplicationController
     redirect_to tasks_path
   end
 
+  def sort_by_name # Хорошо подумать над сортировкой 
+    @tasks.order(:title)
+    render 'index'
+  end
+
   def complete
     @task = Task.find(params[:id])
 

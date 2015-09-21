@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
     collection do
       delete :destroy_multiple
+      get :sort_by_name
     end
   end
 
