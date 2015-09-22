@@ -29,6 +29,8 @@ gem 'cancancan', '~> 1.10'
 
 gem 'bootstrap-sass'
 
+# gem 'client_side_validations'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
