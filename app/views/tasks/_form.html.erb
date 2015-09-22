@@ -1,4 +1,7 @@
+
+
 <%=form_for @task   do |form|%>
+<%=render 'shared/errors.html.erb', :target => @task%>
 
 <div >
 <%=form.label :title, 'Title'%>

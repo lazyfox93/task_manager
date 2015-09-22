@@ -9,6 +9,10 @@ class ApplicationController < ActionController::Base
   	redirect_to root_path
   end
 
+  rescue_from ActiveRecord::RecordInvalid do |exception|
+    render '_form.html.erb'
+  end
+
   protected
 
   def configure_permitted_parameters
