@@ -1,3 +1,5 @@
+<%=form_tag destroy_multiple_tasks_path, method: :delete do%>
+
 <div class="row">
   <div class="col-lg-12">
   <h1>List of tasks</h1>
@@ -5,9 +7,11 @@
     <%#=link_to 'Sort by name', sort_by_name_tasks_path%>
     <input type="button" id="check" value="check all" class="btn btn-default">
     <input type="button" id="uncheck" value="uncheck all" class="btn btn-default">
+    <%=submit_tag "Batch delete", class: "btn btn-danger"%>
   </div>
 </div>
-<%=form_tag destroy_multiple_tasks_path, method: :delete do%>
+
+
 <div class="row">
 
   <div class="col-lg-6">
@@ -27,7 +31,6 @@
     <%-end%>
   <%-end%>
   </ul>
-  <%=submit_tag "Batch delete", class: "btn btn-danger"%>
   </div>
 
   <div class="col-lg-6">

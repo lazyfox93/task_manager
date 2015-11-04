@@ -9,22 +9,23 @@
   </div>
 
   <div class="form-group">
-  <%=form.label :description, 'Description' %></p>
-  <%=form.text_area :description, cols: 30, rows: 20, class: "form-control"%>
-  </div>
-
-  <div >
-  <%=form.label :due_date,'Deadline' %>
-  <%=form.datetime_select :due_date%>
-  </div>
-
-  <div >
   <%=form.label :priority, 'Priority'%>
-  <%=form.number_field :priority, required: true, min: 1, max: 5%>
+  <%=form.number_field :priority, required: true, min: 1, max: 5, class: "form-control"%>
   </div>
+
+  <div class="form-group">
+  <%=form.label :description, 'Description' %></p>
+  <%=form.text_area :description, rows: 10, class: "form-control"%>
+  </div>
+
+  <div class="form-group" >
+  <%=form.label :due_date,'Deadline' %>
+  <%=form.datetime_select :due_date %>
+  </div>
+
 
   <div>
-  <%=form.submit%>
+  <%=form.submit class: "btn btn-primary"%>
   </div>
 
   <%-end%>
